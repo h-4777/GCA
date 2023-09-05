@@ -76,8 +76,8 @@ def test(final=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--device', type=str, default='cuda:2')
-    parser.add_argument('--dataset', type=str, default='WikiCS')
+    parser.add_argument('--device', type=str, default='cuda:0')
+    parser.add_argument('--dataset', type=str, default='PubMed')
     parser.add_argument('--param', type=str, default='local:wikics.json')
     parser.add_argument('--seed', type=int, default=39788)
     parser.add_argument('--verbose', type=str, default='train,eval,final')
@@ -125,7 +125,7 @@ if __name__ == '__main__':
 
     device = torch.device(args.device)
 
-    path = osp.expanduser('~/datasets')
+    path = osp.expanduser('/data/Graph/datasets')
     path = osp.join(path, args.dataset)
     dataset = get_dataset(path, args.dataset)
 

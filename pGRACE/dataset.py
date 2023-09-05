@@ -9,7 +9,7 @@ def get_dataset(path, name):
     assert name in ['Cora', 'CiteSeer', 'PubMed', 'DBLP', 'Karate', 'WikiCS', 'Coauthor-CS', 'Coauthor-Phy',
                     'Amazon-Computers', 'Amazon-Photo', 'ogbn-arxiv', 'ogbg-code']
     name = 'dblp' if name == 'DBLP' else name
-    root_path = osp.expanduser('~/datasets')
+    root_path = osp.expanduser('/data/Graph/datasets')
 
     if name == 'Coauthor-CS':
         return Coauthor(root=path, name='cs', transform=T.NormalizeFeatures())
@@ -18,7 +18,7 @@ def get_dataset(path, name):
         return Coauthor(root=path, name='physics', transform=T.NormalizeFeatures())
 
     if name == 'WikiCS':
-        return WikiCS(root=path, transform=T.NormalizeFeatures())
+        return WikiCS(root=path)
 
     if name == 'Amazon-Computers':
         return Amazon(root=path, name='computers', transform=T.NormalizeFeatures())
